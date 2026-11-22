@@ -132,9 +132,33 @@ if (stripos($contentType, 'application/json') !== 0) {
     ]);
 }
 
-$rawInput = file_get_contents('php://input');
-$data = json_decode($rawInput, true);
+// Limit incoming JSON requests to 16 KB.
+$maxBodyBytes = 16384;
 
+$contentLength = (int) ($_SERVER['CONTENT_LENGTH'] ?? 0);
+
+if ($contentLength > $maxBodyBytes) {
+    respond(413, [
+        'success' => false,
+        'message' => 'Request body is too large.',
+    ]);
+}
+
+// Read at most 1 byte beyond the allowed limit.
+$rawInput = file_get_contents(
+    'php://input',
+    false,
+    null,
+    0,
+    $maxBodyBytes + 1
+);
+if ($rawInput === false || strlen($rawInput) > $maxBodyBytes) {
+    respond(413, [
+        'success' => false,
+        'message' => 'Request body is too large.',
+    ]);
+}
+$data = json_decode($rawInput, true);
 if (!is_array($data)) {
     respond(400, [
         'success' => false,
