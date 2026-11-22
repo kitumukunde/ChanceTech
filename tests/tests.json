@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Navigate portfolio sections from desktop",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "desktop navigation",
+      "portfolio section discovery",
+      "contact call to action"
+    ],
+    "description": "Verifies the main navigation and primary calls to action lead visitors to the expected portfolio sections.",
+    "steps": [
+      "Open the portfolio home page",
+      "Select Skills in the main navigation",
+      "Select Contact in the main navigation"
+    ],
+    "expected": "The Skills and Contact sections are reached and their headings and content are visible."
+  },
+  {
+    "name": "Use the responsive mobile navigation",
+    "viewport": "mobile",
+    "covers": ["mobile navigation menu", "responsive portfolio navigation"],
+    "description": "Verifies a mobile visitor can open the navigation menu and reach a portfolio section.",
+    "steps": [
+      "Open the portfolio at a mobile viewport",
+      "Open the menu button",
+      "Select Projects"
+    ],
+    "expected": "The Projects section is reached and the mobile menu closes."
+  },
+  {
+    "name": "Open professional contact and social links",
+    "viewport": "desktop",
+    "covers": ["email contact action", "external professional profile links"],
+    "description": "Verifies visitors can access the email contact action and the linked professional profiles.",
+    "steps": [
+      "Open the Contact section",
+      "Activate the Send an email link",
+      "Return and open the GitHub link"
+    ],
+    "expected": "The email link targets the configured contact address and the GitHub profile opens in a separate tab."
+  },
+  {
+    "name": "Review project and skills information on mobile",
+    "viewport": "mobile",
+    "covers": [
+      "project portfolio cards",
+      "skills information",
+      "responsive content layout"
+    ],
+    "description": "Verifies the skills and selected project information remains readable on a narrow screen.",
+    "steps": [
+      "Open the Skills section",
+      "Review the listed skill cards",
+      "Open the Projects section and review the project cards"
+    ],
+    "expected": "Skill details and all selected project cards are visible without horizontal page overflow."
+  }
+]
