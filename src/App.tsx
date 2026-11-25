@@ -125,6 +125,7 @@ const projects = [
   description:
     'A responsive developer portfolio showcasing software projects, full-stack development skills, IT expertise, and AI development interests. Built with React, TypeScript, and Tailwind CSS.',
   number: '03',
+    github: 'https://github.com/kitumukunde/ChanceTech',
   technologies: [
     'React',
     'TypeScript',
